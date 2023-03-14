@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DeepAI</title>
+    <script src="https://cdnjs.deepai.org/deepai.min.js"></script>
+  </head>
+  <body>
+    <div id="result-container"></div>
+
+    <script>
+      const loadImage = async () => {
+        const apiKey = "cd6156dc-c615-4f55-9bf5-8a056dbe11f2";
+        // Ensure you load deepai with one of the methods in "Installation"
+        deepai.setApiKey(apiKey);
+
+        const result = await deepai.callStandardApi("sentiment-analysis", {
+          text: "I am very happy to play with the newest APIs!",
+        });
+
+        console.log("result", result);
+
+        await deepai.renderResultIntoElement(
+          result,
+          document.getElementById("result-container")
+        );
+
+        return result;
+      };
+      loadImage()
+        .then((result) => {
+          console.log("result", result);
+        })
+        .catch((e) => {
+          console.error(e);
+        });
+    </script>
+  </body>
+</html>
