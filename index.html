@@ -13,11 +13,10 @@
     <script>
       const loadImage = async () => {
         const apiKey = "e76ba148-6588-4b4a-aa92-1a8d7060d75d";
-        const apiKey_test = "quickstart-QUdJIGlzIGNvbWluZy4uLi4K";
         // Ensure you load deepai with one of the methods in "Installation"
         deepai.setApiKey(apiKey);
 
-        const result = await deepai.callStandardApi("sentiment-analysis", {
+        const result = await deepai.callStandardApi("text2img", {
           text: "I am very happy to play with the newest APIs!",
         });
 
